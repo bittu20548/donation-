@@ -48,7 +48,7 @@ const app = express();
 // =========================================
 
 const allowedOrigins = [
-  "https://dazzling-tartufo-eeedbd.netlify.app",
+  "https://lighthearted-rolpoly-3c321a.netlify.app",
   "http://localhost:5173"
 ];
 
