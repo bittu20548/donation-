@@ -1,0 +1,10 @@
+PORT=5001
+FRONTEND_URL=http://localhost:5173
+
+SUPABASE_URL=https://hytljbdyjkgdyegnqufr.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=PUT_YOUR_NEW_SECRET_KEY_HERE
+
+JWT_SECRET=change_this_to_a_long_random_secret
+
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
