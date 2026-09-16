@@ -44,18 +44,41 @@ const app = express();
 
 
 // =========================================
-// MIDDLEWARE
+// CORS
 // =========================================
+
+const allowedOrigins = [
+  "https://dazzling-tartufo-eeedbd.netlify.app",
+  "http://localhost:5173"
+];
 
 app.use(
   cors({
-    origin:
-      process.env.FRONTEND_URL ||
-      "http://localhost:5173",
+    origin: function (origin, callback) {
+
+      // Allow requests without an origin
+      // such as Postman/server-to-server requests
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(
+        new Error("CORS: Origin not allowed")
+      );
+    },
 
     credentials: true
   })
 );
+
+
+// =========================================
+// BODY PARSERS
+// =========================================
 
 app.use(
   express.json()
@@ -224,6 +247,7 @@ app.use(
 
 app.use(
   (err, req, res, next) => {
+
     console.error(
       "Server error:",
       err
@@ -249,8 +273,10 @@ const PORT =
 app.listen(
   PORT,
   () => {
+
     console.log(
       `Digital Heroes API running on port ${PORT}`
     );
+
   }
 );
