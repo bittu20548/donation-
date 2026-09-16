@@ -1,8 +1,17 @@
 import axios from "axios";
 
+// =========================================
+// API BASE URL
+// =========================================
+
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:5001/api";
+  "https://donation-he.onrender.com/api";
+
+
+// =========================================
+// AXIOS INSTANCE
+// =========================================
 
 const api = axios.create({
   baseURL: API_URL,
